@@ -13,7 +13,7 @@ export default function Page({ params }) {
     }, []);
 
     const getUserDetails = async () => {
-        let data = await fetch(`http://localhost:3000/api/users/${id}`);
+        let data = await fetch("http://localhost:3000/api/users/"+id);
         data = await data.json();
         setName(data.result.name)
         setAge(data.result.age)
