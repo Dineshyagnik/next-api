@@ -24,8 +24,8 @@ export default function Page({ params }) {
         let result = await fetch("http://localhost:3000/api/users/" + id, {
             method: 'PUT',
             body: JSON.stringify(name, age, email)
-        });
-        result = await result.json()
+        })
+        // result = await result.json();
         console.log(result);
     }
 
