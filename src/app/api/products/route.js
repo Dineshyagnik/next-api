@@ -12,6 +12,21 @@ export async function GET() {
     } catch (error) {
         data = { success: false }
     }
-
     return NextResponse.json({ result: data, success: true })
+}
+
+export async function POST(request) {
+    const payload = await request.json();
+    await mongoose.connect(connectionStr);
+    // let product = new Product({
+    //     name: "Redmi note 8",
+    //     price: "30000",
+    //     color: "Silver",
+    //     company: "Redmi",
+    //     category: "Phone"
+    // });
+
+    let product = new Product(payload);
+    const result = await product.save();
+    return NextResponse.json({result,success:true})
 }
