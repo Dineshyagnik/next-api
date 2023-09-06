@@ -1,0 +1,23 @@
+.input{
+    height: 35px;
+    width: 300px;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.addPro_head{
+    text-align: center;
+}
+.addpro_btn{
+    height: 35px;
+    width: 100px;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: orange;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
