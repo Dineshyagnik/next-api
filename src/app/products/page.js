@@ -37,6 +37,7 @@ export default async function () {
                                 <td>{item.color}</td>
                                 <td>{item.company}</td>
                                 <td>{item.category}</td>
+                                <td><Link href={"products/"+item._id}>Edit</Link></td>
                             </tr>
                         ))
                     }
