@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import '../style.css'
+import Link from 'next/link';
 
 export default function () {
     const [name, setName] = useState("");
@@ -13,12 +14,12 @@ export default function () {
 
     const addProduct = async () => {
         console.log(name, price, color, category, company);
-        let result = await fetch("http://localhost:3000/api/products",{
-            method:'POST',
-            body:JSON.stringify({name,price,color,category,company})
+        let result = await fetch("http://localhost:3000/api/products", {
+            method: 'POST',
+            body: JSON.stringify({ name, price, color, category, company })
         });
         result = await result.json();
-        if(result.success){
+        if (result.success) {
             alert("new product added")
         }
     }
@@ -65,6 +66,8 @@ export default function () {
             />
 
             <button className='addpro_btn' onClick={addProduct}>Add Product</button>
+            <Link href={'/'}>Go to Home page</Link>
         </div>
+
     )
 };
