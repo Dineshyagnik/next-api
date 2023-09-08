@@ -17,7 +17,7 @@ export default function (props) {
     }, []);
 
     const getProducDetail = async () => {
-        let productId = props.params.editproduct
+        let productId = props.params.editproduct;
         let productData = await fetch("http://localhost:3000/api/products/" + productId);
         productData = await productData.json();
         if (productData.success) {
@@ -27,6 +27,18 @@ export default function (props) {
             setColor(result.color);
             setCompany(result.company);
             setCategory(result.category);
+        }
+    }
+
+    const updateProduct = async () => {
+        let productId = props.params.editproduct;
+        let data = await fetch("http://localhost:3000/api/products/" + productId, {
+            method: "POST",
+            body: JSON.stringify(name, price, color, company, category)
+        });
+        data = await data.json();
+        if (data.result) {
+            alert("Product has been updated");
         }
     }
 
@@ -71,7 +83,7 @@ export default function (props) {
                 onChange={(e) => setCategory(e.target.value)}
             />
 
-            <button className='addpro_btn'>Update Product</button>
+            <button className='addpro_btn' onClick={updateProduct}>Update Product</button>
             <Link href={'/products'}>Go to Product List</Link>
         </div>
 
