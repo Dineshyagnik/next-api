@@ -10,7 +10,7 @@ export async function PUT(request, content) {
     console.log(payload);
     await mongoose.connect(connectionStr);
     const result = await Product.findOneAndUpdate(filter, payload)
-
+    console.log(result);
     return NextResponse.json({ result, success: true });
 }
 
